@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Data Structures and Modern Operators</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(to top left, #28b487, #7dd56f);
+      }
+      h1 {
+        font-family: sans-serif;
+        font-size: 50px;
+        line-height: 1.3;
+        width: 100%;
+        padding: 30px;
+        text-align: center;
+        color: white;
+      }
+      button {
+        width: 50px;
+        height: 20px;
+        margin: 10px;
+      }
+      textarea {
+        width: 300px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Data Structures and Modern Operators</h1>
+    <script src="script.js"></script>
+    <script src="strings.js"></script>
+  </body>
+</html>
+
+<div class="companybox">
+  <div class="logo" style="display: none"></div>
+  <div style="display: none" class="logotext" id="LabelProjectText">
+    Make a payment to <span class="companyname"></span>
+  </div>
+</div>
+<div
+  class="paymentdescription"
+  style="
+    border-color: rgb(177, 177, 177);
+    background: white none repeat scroll 0% 0%;
+  "
+>
+  <span
+    id="paymentdescriptiontext"
+    class="paymentdescriptiontext"
+    style="color: black"
+    >Single payment of £10.00</span
+  >
+  <a
+    class="changepayment"
+    id="changepayment"
+    href="javascript:showpaymentchange();"
+    style="color: blue"
+    >[<span data-label="change">change</span>]</a
+  >
+</div>
+<form
+  novalidate=""
+  autocomplete="off"
+  class="paymentform"
+  id="paymentform"
+  method="post"
+  onsubmit="return confirmform();"
+  action="/Asperato/asp/PMWeb2X"
+>
+  <div id="HiddenFields" style="display: none">
+    <input name="AAE" id="AAE" type="hidden" />
+    <input name="locale" id="locale" type="hidden" value="" />
+    <input name="defaultpayas" id="defaultpayas" type="hidden" />
+    <input name="BannedCards" id="BannedCards" type="hidden" value="" />
+    <input
+      name="CaptchaEnabled"
+      id="CaptchaEnabled"
+      type="hidden"
+      value="false"
+    />
+    <input name="DLenvironment" id="DLenvironment" type="hidden" value="live" />
+    <input name="DLSCAClientKey" id="DLSCAClientKey" type="hidden" value="" />
+    <input name="DLUseSCA" id="DLUseSCA" type="hidden" value="false" />
+    <input name="DLamount" id="DLamount" type="hidden" value="10.00" />
+    <input name="DLauthAmount" id="DLauthAmount" type="hidden" value="1.01" />
+    <input name="DLbankName" id="DLbankName" type="hidden" />
+    <input name="DLcardType" id="DLcardType" type="hidden" />
+    <input name="DLcnp" id="DLcnp" type="hidden" />
+    <input name="DLcrossReference" id="DLcrossReference" type="hidden" />
+    <input name="DLcurrency" id="DLcurrency" type="hidden" value="GBP" />
+    <input name="DLday" id="DLday" type="hidden" />
+    <input name="DLdueDate" id="DLdueDate" type="hidden" />
+    <input name="DLexpiryDateMonth" id="DLexpiryDateMonth" type="hidden" />
+    <input name="DLexpiryDateYear" id="DLexpiryDateYear" type="hidden" />
+    <input name="DLfrequency" id="DLfrequency" type="hidden" />
+    <input name="DLgiftaid" id="DLgiftaid" type="hidden" />
+    <input name="DLmonth" id="DLmonth" type="hidden" />
+    <input name="DLpayMode" id="DLpayMode" type="hidden" value="ECOM" />
+    <input name="DLpayType" id="DLpayType" type="hidden" />
+    <input
+      name="DLsession"
+      id="DLsession"
+      type="hidden"
+      value="s1l2s6rjopvlsuh19ckasegq7h3182945"
+    />
+    <input name="DLstartDateMonth" id="DLstartDateMonth" type="hidden" />
+    <input name="DLstartDateYear" id="DLstartDateYear" type="hidden" />
+    <input name="Expired" id="Expired" type="hidden" value="false" />
+    <input name="DLsubcall" id="DLsubcall" type="hidden" value="true" />
+    <input name="DLsubcallMsg" id="DLsubcallMsg" type="hidden" value="" />
+    <input name="DLyear" id="DLyear" type="hidden" />
+    <input name="DLtransDesc" id="DLtransDesc" type="hidden" value="" />
+    <input
+      name="DLMerchantGroup"
+      id="DLMerchantGroup"
+      type="hidden"
+      value="Default"
+    />
+    <input
+      name="DefaultPaymentOption"
+      id="DefaultPaymentOption"
+      type="hidden"
+    />
+    <input name="GDPRemail" id="GDPRemail" type="hidden" />
+    <input name="GDPRpost" id="GDPRpost" type="hidden" />
+    <input name="LabelCancelUrl" id="LabelCancelUrl" type="hidden" value="" />
+    <input
+      name="LabelCollectionType"
+      id="LabelCollectionType"
+      type="hidden"
+      value="Single Only"
+    />
+    <input name="LabelDDInterval" id="LabelDDInterval" type="hidden" />
+    <input
+      name="LabelFrequencyOptions"
+      id="LabelFrequencyOptions"
+      type="hidden"
+      value="Single"
+    />
+    <input name="LabelGDPROptions" id="LabelGDPROptions" type="hidden" />
+    <input name="LabelGiftAidFlag" id="LabelGiftAidFlag" type="hidden" />
+    <input
+      name="LabelPaymentOptions"
+      id="LabelPaymentOptions"
+      type="hidden"
+      value="Card"
+    />
+    <input
+      name="LabelPaymentOptionsSan"
+      id="LabelPaymentOptionsSan"
+      type="hidden"
+      value="Card"
+    />
+    <input name="LabelProjectName" id="LabelProjectName" type="hidden" />
+    <input name="LabelStartDate" id="LabelStartDate" type="hidden" />
+    <input
+      name="LabelUseHostedPageFlag"
+      id="LabelUseHostedPageFlag"
+      type="hidden"
+      value="false"
+    />
+    <input name="authRef" id="authRef" type="hidden" />
+    <input name="contactRef" id="contactRef" type="hidden" />
+    <input
+      name="firstpayment"
+      id="firstpayment"
+      type="hidden"
+      value="2020-11-16"
+    />
+    <input name="userLang" id="userLang" type="hidden" value="en-US" />
+    <input name="colorDepth" id="colorDepth" type="hidden" value="24" />
+    <input name="screenHeight" id="screenHeight" type="hidden" value="1200" />
+    <input name="screenWidth" id="screenWidth" type="hidden" value="1920" />
+    <input
+      name="timeZoneOffset"
+      id="timeZoneOffset"
+      type="hidden"
+      value="420"
+    />
+    <input name="javaEnabled" id="javaEnabled" type="hidden" value="false" />
+  </div>
+  <div class="topfieldwrapper">
+    <div class="multifieldwrapper">
+      <div
+        class="inputcontainer companydiv"
+        id="companydiv"
+        style="border-color: rgb(177, 177, 177); display: none"
+      >
+        <input
+          id="DLcompanyName"
+          name="DLcompanyName"
+          class="forminput"
+          oninvalid="this.setCustomValidity(getLabel('company.name.err'))"
+          oninput="this.setCustomValidity('')"
+          style="background: white none repeat scroll 0% 0%"
+          disabled=""
+        />
+        <label
+          class="label"
+          data-label="company.name"
+          for="DLcompanyName"
+          style="color: rgb(170, 170, 170)"
+          >Company name</label
+        >
+        <label class="label right" style="color: rgb(170, 170, 170)"
+          ><a
+            tabindex="-1"
+            href="javascript:showindividual();"
+            style="color: blue"
+            ><span data-label="use.individual">Use individual details</span></a
+          ></label
+        >
+      </div>
+      <div
+        class="inputcontainer firstnamediv"
+        id="firstnamediv"
+        style="border-color: rgb(177, 177, 177)"
+      >
+        <input
+          id="DLforename"
+          name="DLforename"
+          class="forminput"
+          oninvalid="this.setCustomValidity(getLabel('first.name.err'))"
+          oninput="this.setCustomValidity('')"
+          required=""
+          style="background: white none repeat scroll 0% 0%"
+        />
+        <label
+          class="label"
+          data-label="first.name"
+          for="DLforename"
+          style="color: rgb(170, 170, 170)"
+          >First name</label
+        >
+        <label
+          class="label right payascompanylink fnpayascompany"
+          style="display: none; color: rgb(170, 170, 170)"
+          ><a
+            tabindex="-1"
+            href="javascript:showcompany();"
+            style="color: blue"
+          ></a
+          ><a tabindex="-1" href="javascript:showcompany();" style="color: blue"
+            ><span data-label="use.company">Use company details</span></a
+          ></label
+        >
+      </div>
+      <div
+        class="inputcontainer lastnamediv"
+        id="lastnamediv"
+        style="border-color: rgb(177, 177, 177)"
+      >
+        <input
+          id="DLlastname"
+          name="DLlastname"
+          class="forminput"
+          oninvalid="this.setCustomValidity(getLabel('last.name.err'))"
+          oninput="this.setCustomValidity('')"
+          required=""
+          style="background: white none repeat scroll 0% 0%"
+        />
+        <label
+          class="label"
+          data-label="last.name"
+          for="DLlastname"
+          style="color: rgb(170, 170, 170)"
+          >Last name</label
+        >
+        <label
+          id="lastnamepayascompanylink"
+          class="label right payascompanylink lnpayascompany"
+          style="display: none; color: rgb(170, 170, 170)"
+          ><a tabindex="-1" href="javascript:showcompany();" style="color: blue"
+            ><span data-label="use.company">Use company details</span></a
+          ></label
+        >
+      </div>
+    </div>
+    <div class="multifieldwrapper">
+      <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+        <input
+          id="DLemail"
+          type="email"
+          name="DLemail"
+          pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}"
+          oninvalid="this.setCustomValidity(getLabel('email.err'))"
+          oninput="this.setCustomValidity('')"
+          class="forminput"
+          required=""
+          style="background: white none repeat scroll 0% 0%"
+        />
+        <label
+          class="label"
+          data-label="email"
+          for="DLemail"
+          style="color: rgb(170, 170, 170)"
+          >Email</label
+        >
+      </div>
+    </div>
+    <div class="hiddenaddressfields" id="hiddenaddressfields" style="">
+      <div class="multifieldwrapper">
+        <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+          <input
+            id="DLaddress1"
+            name="DLaddress1"
+            class="forminput"
+            required=""
+            style="background: white none repeat scroll 0% 0%"
+          />
+          <label
+            class="label"
+            data-label="address.1"
+            for="DLaddress1"
+            style="color: rgb(170, 170, 170)"
+            >Address line 1</label
+          >
+        </div>
+      </div>
+      <div class="multifieldwrapper">
+        <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+          <input
+            id="DLaddress2"
+            name="DLaddress2"
+            class="forminput"
+            style="background: white none repeat scroll 0% 0%"
+          />
+          <label
+            class="label"
+            data-label="address.2"
+            for="DLaddress2"
+            style="color: rgb(170, 170, 170)"
+            >Address line 2</label
+          >
+        </div>
+      </div>
+      <div class="multifieldwrapper">
+        <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+          <input
+            id="DLcity"
+            name="DLcity"
+            class="forminput"
+            required=""
+            style="background: white none repeat scroll 0% 0%"
+          />
+          <label
+            class="label"
+            data-label="city"
+            for="DLcity"
+            style="color: rgb(170, 170, 170)"
+            >City</label
+          >
+        </div>
+      </div>
+      <div class="multifieldwrapper">
+        <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+          <input
+            id="DLcounty"
+            name="DLcounty"
+            class="forminput"
+            style="background: white none repeat scroll 0% 0%"
+          />
+          <label
+            class="label"
+            id="countylabel"
+            data-label="county"
+            for="DLcounty"
+            style="color: rgb(170, 170, 170)"
+            >County</label
+          >
+        </div>
+      </div>
+      <div class="multifieldwrapper" id="xx">
+        <div
+          class="inputcontainer"
+          id="xxx"
+          style="border-color: rgb(177, 177, 177)"
+        >
+          <select
+            id="DLcountry"
+            onchange="ddCountryChanged();"
+            name="DLcountry"
+            class="forminput"
+            style="background: white none repeat scroll 0% 0%"
+          >
+            <option value="AF">Afghanistan</option>
+            <option value="AX">Åland Islands</option>
+            <option value="AL">Albania</option>
+            <option value="DZ">Algeria</option>
+            <option value="AD">Andorra</option>
+            <option value="AO">Angola</option>
+            <option value="AI">Anguilla</option>
+            <option value="AQ">Antarctica</option>
+            <option value="AG">Antigua and Barbuda</option>
+            <option value="AR">Argentina</option>
+            <option value="AM">Armenia</option>
+            <option value="AW">Aruba</option>
+            <option
+              data-acc="Account Number"
+              data-sc="BSB Number"
+              value="AU"
+              data-scheme="BECS"
+            >
+              Australia
+            </option>
+            <option
+              data-acc="Kontonummer"
+              data-bc="Bankleitzahl"
+              value="AT"
+              data-scheme="SEPA"
+            >
+              Austria
+            </option>
+            <option value="AZ">Azerbaijan</option>
+            <option value="BS">Bahamas</option>
+            <option value="BH">Bahrain</option>
+            <option value="BD">Bangladesh</option>
+            <option value="BB">Barbados</option>
+            <option value="BY">Belarus</option>
+            <option data-acc="Rekeningnummer" value="BE" data-scheme="SEPA">
+              Belgium
+            </option>
+            <option value="BZ">Belize</option>
+            <option value="BJ">Benin</option>
+            <option value="BM">Bermuda</option>
+            <option value="BT">Bhutan</option>
+            <option value="BO">Bolivia</option>
+            <option value="BQ">Bonaire</option>
+            <option value="BA">Bosnia and Herzegovina</option>
+            <option value="BW">Botswana</option>
+            <option value="BV">Bouvet Island</option>
+            <option value="BR">Brazil</option>
+            <option value="IO">British Indian Ocean Territory</option>
+            <option value="BN">Brunei Darussalam</option>
+            <option value="BG">Bulgaria</option>
+            <option value="BF">Burkina Faso</option>
+            <option value="BI">Burundi</option>
+            <option value="KH">Cambodia</option>
+            <option value="CM">Cameroon</option>
+            <option
+              value="CA"
+              data-acc="Account Number"
+              data-bc="FI number"
+              data-sc="Branch Transit number"
+              data-scheme="PAD"
+            >
+              Canada
+            </option>
+            <option value="CV">Cabo Verde</option>
+            <option value="KY">Cayman Islands</option>
+            <option value="CF">Central African Republic</option>
+            <option value="TD">Chad</option>
+            <option value="CL">Chile</option>
+            <option value="CN">China</option>
+            <option value="CX">Christmas Island</option>
+            <option value="CC">Cocos (Keeling) Islands</option>
+            <option value="CO">Colombia</option>
+            <option value="KM">Comoros</option>
+            <option value="CD">Congo, the Democratic Republic of</option>
+            <option value="CG">Congo</option>
+            <option value="CK">Cook Islands</option>
+            <option value="CR">Costa Rica</option>
+            <option value="CI">Côte d'Ivoire</option>
+            <option value="HR">Croatia</option>
+            <option value="CU">Cuba</option>
+            <option value="CW">Curaçao</option>
+            <option
+              data-acc="Arithmos Logariasmou"
+              data-bc="Kodikos Trapezas"
+              value="CY"
+              data-scheme="SEPA"
+            >
+              Cyprus
+            </option>
+            <option value="CZ">Czechia</option>
+            <option value="DK">Denmark</option>
+            <option value="DJ">Djibouti</option>
+            <option value="DM">Dominica</option>
+            <option value="DO">Dominican Republic</option>
+            <option value="EC">Ecuador</option>
+            <option value="EG">Egypt</option>
+            <option value="SV">El Salvador</option>
+            <option value="GQ">Equatorial Guinea</option>
+            <option value="ER">Eritrea</option>
+            <option value="EE">Estonia</option>
+            <option value="ET">Ethiopia</option>
+            <option value="FK">Falkland Islands</option>
+            <option value="FO">Faroe Islands</option>
+            <option value="FJ">Fiji</option>
+            <option value="FI">Finland</option>
+            <option
+              data-acc="Numéro de compte"
+              data-sc="Code guichet"
+              data-bc="Code banque"
+              value="FR"
+              data-scheme="SEPA"
+            >
+              France
+            </option>
+            <option
+              data-acc="Numéro de compte"
+              data-sc="Code guichet"
+              data-bc="Code banque"
+              value="GF"
+              data-scheme="SEPA"
+            >
+              French Guiana
+            </option>
+            <option value="PF">French Polynesia</option>
+            <option value="TF">French Southern Territories</option>
+            <option value="GA">Gabon</option>
+            <option value="GM">Gambia</option>
+            <option value="GE">Georgia</option>
+            <option
+              data-acc="Kontonummer"
+              data-bc="Bankleitzahl"
+              value="DE"
+              data-scheme="SEPA"
+            >
+              Germany
+            </option>
+            <option value="GH">Ghana</option>
+            <option value="GI">Gibraltar</option>
+            <option value="GR">Greece</option>
+            <option value="GL">Greenland</option>
+            <option value="GD">Grenada</option>
+            <option
+              data-acc="Numéro de compte"
+              data-sc="Code guichet"
+              data-bc="Code banque"
+              value="GP"
+              data-scheme="SEPA"
+            >
+              Guadeloupe
+            </option>
+            <option value="GT">Guatemala</option>
+            <option value="GG">Guernsey</option>
+            <option value="GW">Guinea-Bissau</option>
+            <option value="GN">Guinea</option>
+            <option value="GY">Guyana</option>
+            <option value="HT">Haiti</option>
+            <option value="HM">Heard Island and McDonald Islands</option>
+            <option value="VA">Holy See</option>
+            <option value="HN">Honduras</option>
+            <option value="HU">Hungary</option>
+            <option value="IS">Iceland</option>
+            <option value="IN">India</option>
+            <option value="ID">Indonesia</option>
+            <option value="IR">Iran</option>
+            <option value="IQ">Iraq</option>
+            <option
+              data-acc="Account number"
+              data-sc="Sort code"
+              value="IE"
+              data-scheme="SEPA"
+            >
+              Ireland
+            </option>
+            <option value="IM">Isle of Man</option>
+            <option value="IL">Israel</option>
+            <option value="IT">Italy</option>
+            <option value="JM">Jamaica</option>
+            <option value="JP">Japan</option>
+            <option value="JE">Jersey</option>
+            <option value="JO">Jordan</option>
+            <option value="KZ">Kazakhstan</option>
+            <option value="KE">Kenya</option>
+            <option value="KI">Kiribati</option>
+            <option value="KP">
+              Korea, the Democratic People's Republic of
+            </option>
+            <option value="KR">Korea, the Republic of</option>
+            <option value="KW">Kuwait</option>
+            <option value="KG">Kyrgyzstan</option>
+            <option value="LA">Lao People's Democratic Republic</option>
+            <option value="LV">Latvia</option>
+            <option value="LB">Lebanon</option>
+            <option value="LS">Lesotho</option>
+            <option value="LR">Liberia</option>
+            <option value="LY">Libya</option>
+            <option value="LI">Liechtenstein</option>
+            <option value="LT">Lithuania</option>
+            <option value="LU">Luxembourg</option>
+            <option value="MO">Macao</option>
+            <option value="MK">Macedonia</option>
+            <option value="MG">Madagascar</option>
+            <option value="MW">Malawi</option>
+            <option value="MY">Malaysia</option>
+            <option value="MV">Maldives</option>
+            <option value="ML">Mali</option>
+            <option
+              data-acc="numru tal‑kont bankarju"
+              data-sc="sort code"
+              value="MT"
+              data-scheme="SEPA"
+            >
+              Malta
+            </option>
+            <option
+              data-acc="Numéro de compte"
+              data-sc="Code guichet"
+              data-bc="Code banque"
+              value="MQ"
+              data-scheme="SEPA"
+            >
+              Martinique
+            </option>
+            <option value="MR">Mauritania</option>
+            <option value="MU">Mauritius</option>
+            <option
+              data-acc="Numéro de compte"
+              data-sc="Code guichet"
+              data-bc="Code banque"
+              value="YT"
+              data-scheme="SEPA"
+            >
+              Mayotte
+            </option>
+            <option value="MX">Mexico</option>
+            <option value="MD">Moldova</option>
+            <option
+              data-acc="Numéro de compte"
+              data-sc="Code guichet"
+              data-bc="Code banque"
+              value="MC"
+              data-scheme="SEPA"
+            >
+              Monaco
+            </option>
+            <option value="MN">Mongolia</option>
+            <option value="ME">Montenegro</option>
+            <option value="MS">Montserrat</option>
+            <option value="MA">Morocco</option>
+            <option value="MZ">Mozambique</option>
+            <option value="MM">Myanmar</option>
+            <option value="NA">Namibia</option>
+            <option value="NR">Nauru</option>
+            <option value="NP">Nepal</option>
+            <option value="NL">Netherlands</option>
+            <option value="NC">New Caledonia</option>
+            <option
+              value="NZ"
+              data-acc="Account Number"
+              data-sc="Branch Number"
+              data-bc="Bank Number"
+              data-scheme="BECS"
+            >
+              New Zealand
+            </option>
+            <option value="NI">Nicaragua</option>
+            <option value="NE">Niger</option>
+            <option value="NG">Nigeria</option>
+            <option value="NU">Niue</option>
+            <option value="NF">Norfolk Island</option>
+            <option value="NO">Norway</option>
+            <option value="OM">Oman</option>
+            <option value="PK">Pakistan</option>
+            <option value="PS">Palestine, State of</option>
+            <option value="PA">Panama</option>
+            <option value="PG">Papua New Guinea</option>
+            <option value="PY">Paraguay</option>
+            <option value="PE">Peru</option>
+            <option value="PH">Philippines</option>
+            <option value="PN">Pitcairn</option>
+            <option value="PL">Poland</option>
+            <option
+              data-acc="Número de conta"
+              data-sc="Código de Balcão"
+              data-bc="Código de Banco"
+              value="PT"
+              data-scheme="SEPA"
+            >
+              Portugal
+            </option>
+            <option value="QA">Qatar</option>
+            <option
+              data-acc="Numéro de compte"
+              data-sc="Code guichet"
+              data-bc="Code banque"
+              value="RE"
+              data-scheme="SEPA"
+            >
+              Réunion
+            </option>
+            <option value="RO">Romania</option>
+            <option value="RU">Russian Federation</option>
+            <option value="RW">Rwanda</option>
+            <option
+              data-acc="Numéro de compte"
+              data-sc="Code guichet"
+              data-bc="Code banque"
+              value="BL"
+              data-scheme="SEPA"
+            >
+              Saint Barthélemy
+            </option>
+            <option value="SH">
+              Saint Helena, Ascension and Tristan da Cunha
+            </option>
+            <option value="KN">Saint Kitts and Nevis</option>
+            <option value="LC">Saint Lucia</option>
+            <option
+              data-acc="Numéro de compte"
+              data-sc="Code guichet"
+              data-bc="Code banque"
+              value="MF"
+              data-scheme="SEPA"
+            >
+              Saint Martin
+            </option>
+            <option
+              data-acc="Numéro de compte"
+              data-sc="Code guichet"
+              data-bc="Code banque"
+              value="PM"
+              data-scheme="SEPA"
+            >
+              Saint Pierre and Miquelon
+            </option>
+            <option value="VC">Saint Vincent and the Grenadines</option>
+            <option value="WS">Samoa</option>
+            <option value="SM">San Marino</option>
+            <option value="ST">Sao Tome and Principe</option>
+            <option value="SA">Saudi Arabia</option>
+            <option value="SN">Senegal</option>
+            <option value="RS">Serbia</option>
+            <option value="SC">Seychelles</option>
+            <option value="SL">Sierra Leone</option>
+            <option value="SG">Singapore</option>
+            <option value="SX">Sint Maarten</option>
+            <option
+              data-acc="předčíslí and číslo účtu"
+              data-bc="předčíslí and číslo účtu"
+              value="SK"
+              data-scheme="SEPA"
+            >
+              Slovakia
+            </option>
+            <option data-acc="Account number" data-bc="Bank code" value="SI">
+              Slovenia
+            </option>
+            <option value="SB">Solomon Islands</option>
+            <option value="SO">Somalia</option>
+            <option value="ZA">South Africa</option>
+            <option value="GS">
+              South Georgia and the South Sandwich Islands
+            </option>
+            <option value="SS">South Sudan</option>
+            <option
+              data-acc="Código Cuenta Cliente"
+              value="ES"
+              data-scheme="SEPA"
+            >
+              Spain
+            </option>
+            <option value="LK">Sri Lanka</option>
+            <option value="SD">Sudan</option>
+            <option value="SR">Suriname</option>
+            <option value="SJ">Svalbard and Jan Mayen</option>
+            <option value="SZ">Eswatini</option>
+            <option value="SE">Sweden</option>
+            <option value="CH">Switzerland</option>
+            <option value="SY">Syrian Arab Republic</option>
+            <option value="TW">Taiwan (Province of China)</option>
+            <option value="TJ">Tajikistan</option>
+            <option value="TZ">Tanzania, United Republic of</option>
+            <option value="TH">Thailand</option>
+            <option value="TL">Timor-Leste</option>
+            <option value="TG">Togo</option>
+            <option value="TK">Tokelau</option>
+            <option value="TO">Tonga</option>
+            <option value="TT">Trinidad and Tobago</option>
+            <option value="TN">Tunisia</option>
+            <option value="TR">Turkey</option>
+            <option value="TM">Turkmenistan</option>
+            <option value="TC">Turks and Caicos Islands</option>
+            <option value="TV">Tuvalu</option>
+            <option value="UG">Uganda</option>
+            <option value="UA">Ukraine</option>
+            <option value="AE">United Arab Emirates</option>
+            <option
+              data-acc="Account number"
+              data-sc="Sort code"
+              data-scheme="BACS"
+              value="GB"
+              selected=""
+            >
+              United Kingdom
+            </option>
+            <option value="US">United States of America</option>
+            <option value="UY">Uruguay</option>
+            <option value="UZ">Uzbekistan</option>
+            <option value="VU">Vanuatu</option>
+            <option value="VE">Venezuela</option>
+            <option value="VN">Viet Nam</option>
+            <option value="VG">Virgin Islands (British)</option>
+            <option value="WF">Wallis and Futuna</option>
+            <option value="EH">Western Sahara</option>
+            <option value="YE">Yemen</option>
+            <option value="ZM">Zambia</option>
+            <option value="ZW">Zimbabwe</option>
+          </select>
+          <label
+            class="label"
+            data-label="country"
+            for="DLcountry"
+            style="color: rgb(170, 170, 170)"
+            >Country</label
+          >
+        </div>
+      </div>
+    </div>
+    <div class="multifieldwrapper">
+      <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+        <div class="addressbuttoncontainer">
+          <a
+            id="lookupaddrbutton"
+            tabindex="-1"
+            href="javascript:lookupaddress();"
+            class="lookupaddrbutton smallbutton"
+            data-label="lookup.address"
+            style="
+              display: none;
+              color: white;
+              background-color: rgb(80, 146, 218);
+              border-color: rgb(80, 146, 218);
+            "
+            >Lookup address</a
+          >
+          <a
+            id="manualaddrbutton"
+            tabindex="-1"
+            href="javascript:showaddress();"
+            class="manualaddrbutton smallbutton"
+            data-label="enter.address.manually"
+            style="
+              color: white;
+              background-color: rgb(80, 146, 218);
+              border-color: rgb(80, 146, 218);
+              display: none;
+            "
+            >Enter address manually</a
+          >
+        </div>
+        <input
+          id="DLpostcode"
+          name="DLpostcode"
+          class="forminput"
+          maxlength="20"
+          required=""
+          style="background: white none repeat scroll 0% 0%"
+        />
+        <label
+          class="label"
+          id="postcodelabel"
+          data-label="postcode"
+          for="DLpostcode"
+          style="color: rgb(170, 170, 170)"
+          >Postcode</label
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="paymentwrapper" id="ddwrapper" style="display: none">
+    <fieldset id="ddfieldset" disabled="">
+      <fieldset class="nonhostedfieldwrapper">
+        <div class="topfieldwrapper nonhostedfieldwrapper">
+          <div class="multifieldwrapper">
+            <div
+              class="inputcontainer"
+              id="accountnamecontainer"
+              style="border-color: rgb(177, 177, 177)"
+            >
+              <label
+                id="useibandd"
+                class="label right"
+                style="color: rgb(170, 170, 170)"
+                >Or
+                <a
+                  tabindex="-1"
+                  href="javascript:useIban();"
+                  data-label="use.iban.bank"
+                  style="color: blue"
+                  >use IBAN</a
+                ></label
+              >
+              <label
+                id="uselocaldd"
+                class="label right"
+                style="color: rgb(170, 170, 170); display: none"
+                >Or
+                <a
+                  tabindex="-1"
+                  href="javascript:useLocal();"
+                  data-label="use.local.bank"
+                  style="color: blue"
+                  >use local details</a
+                ></label
+              >
+              <input
+                name="DLaccountName"
+                id="DLaccountName"
+                class="forminput"
+                oninvalid="this.setCustomValidity(getLabel('account.name.err'))"
+                oninput="this.setCustomValidity('');"
+                pattern=".*\S.*"
+                style="background: white none repeat scroll 0% 0%"
+              />
+              <label
+                for="DLaccountName"
+                class="label"
+                data-label="account.name"
+                style="color: rgb(170, 170, 170)"
+                >Account name</label
+              >
+            </div>
+            <div
+              class="inputcontainer accounttypecontainer"
+              id="accounttypecontainer"
+              style="border-color: rgb(177, 177, 177)"
+            >
+              <select
+                name="DLaccountType"
+                id="DLaccountTypeEC"
+                class="forminput"
+                style="background: white none repeat scroll 0% 0%"
+                disabled=""
+              >
+                <option value="checking">Checking</option>
+                <option value="savings">Savings</option>
+              </select>
+              <label
+                for="DLaccountType"
+                class="label"
+                style="color: rgb(170, 170, 170)"
+                >Account type</label
+              >
+            </div>
+          </div>
+          <div id="localddblock" class="localddblock">
+            <input
+              type="hidden"
+              name="DLaccountType"
+              id="DLaccountTypeDD"
+              value="Bank"
+            />
+            <fieldset id="localddfieldset" class="nonhostedfieldwrapper">
+              <div class="multifieldwrapper">
+                <div
+                  class="inputcontainer"
+                  id="accountNumberContainer"
+                  style="border-color: rgb(177, 177, 177)"
+                >
+                  <input
+                    oninput="this.setCustomValidity('');"
+                    name="DLaccountNumber"
+                    id="DLaccountNumber"
+                    class="forminput"
+                    style="background: white none repeat scroll 0% 0%"
+                  />
+                  <label
+                    for="DLaccountNumber"
+                    id="DLaccountNumberlabel"
+                    class="label"
+                    data-label="account.number"
+                    style="color: rgb(170, 170, 170)"
+                    >Account Number</label
+                  >
+                </div>
+                <div
+                  class="inputcontainer"
+                  id="sortCodeContainer"
+                  style="border-color: rgb(177, 177, 177)"
+                >
+                  <input
+                    oninput="this.setCustomValidity('');"
+                    name="DLsc"
+                    id="DLsc"
+                    class="forminput"
+                    style="background: white none repeat scroll 0% 0%"
+                  />
+                  <label
+                    for="DLsc"
+                    id="DLsclabel"
+                    class="label"
+                    data-label="sort.code"
+                    style="color: rgb(170, 170, 170)"
+                    >Branch Transit number</label
+                  >
+                </div>
+                <div
+                  class="inputcontainer"
+                  id="bankCodeContainer"
+                  style="border-color: rgb(177, 177, 177)"
+                >
+                  <input
+                    oninput="this.setCustomValidity('');"
+                    name="DLbankCode"
+                    id="DLbankCode"
+                    class="forminput"
+                    style="background: white none repeat scroll 0% 0%"
+                  />
+                  <label
+                    for="DLbankCode"
+                    id="DLbankCodelabel"
+                    class="label"
+                    data-label="bank.code"
+                    style="color: rgb(170, 170, 170)"
+                    >FI number</label
+                  >
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div id="ibanddblock" class="ibanddblock" style="display: none">
+            <fieldset
+              id="ibanddfieldset"
+              class="nonhostedfieldwrapper"
+              disabled=""
+            >
+              <div class="multifieldwrapper">
+                <div
+                  class="inputcontainer"
+                  style="border-color: rgb(177, 177, 177)"
+                >
+                  <input
+                    oninput="this.setCustomValidity('');"
+                    name="DLiban"
+                    id="DLiban"
+                    class="forminput"
+                    style="background: white none repeat scroll 0% 0%"
+                  />
+                  <label
+                    for="DLiban"
+                    id="DLibanlabel"
+                    class="label"
+                    data-label="bank.iban"
+                    style="color: rgb(170, 170, 170)"
+                    >IBAN</label
+                  >
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </fieldset>
+      <div>
+        <span class="switchlabel cardswitchlabel"
+          ><span data-label="or">or</span>
+          <a
+            class="hrefshowcard"
+            href="javascript:showcard();"
+            style="color: blue"
+            ><span class="paybyuse" data-label="pay.by">pay by</span>
+            <span data-label="card">card</span></a
+          ></span
+        >
+        <span class="switchlabel ppswitchlabel" style="display: none"
+          ><span data-label="or">or</span>
+          <a class="hrefshowpp" href="javascript:showpp();" style="color: blue"
+            ><span class="paybyuse" data-label="pay.by">pay by</span> Paypal</a
+          ></span
+        >
+        <span style="display: none" class="switchlabel idealswitchlabel"
+          ><span data-label="or">or</span>
+          <a
+            class="hrefshowideal"
+            href="javascript:showideal();"
+            style="color: blue"
+            ><span class="paybyuse" data-label="pay.by">pay by</span> iDEAL</a
+          ></span
+        >
+      </div>
+      <div class="topfieldwrapper nonhostedfieldwrapper">
+        <div
+          class="ddmultiplewrapper"
+          id="ddmultiplewrapper"
+          style="display: none"
+        >
+          <input id="ddmultiple" type="checkbox" onclick="showDDAuthExpl()" />
+          <div class="ddmultipletext" data-label="dd.multiple.auth">
+            More than one person is required to authorise direct debits.
+          </div>
+          <div
+            class="ddmultipleexpl"
+            id="ddmultipleexpl"
+            data-label="dd.multiple.expl"
+          >
+            If more than one person is required to authorise Direct Debits on
+            this account, you will not be able to complete this form. If it's a
+            joint account but you can authorise payments on your own, you should
+            untick this box.
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="paymentwrapper" id="cardwrapper">
+    <fieldset id="cardfieldset">
+      <input
+        type="hidden"
+        name="DLaccountType"
+        id="DLaccountTypeDD"
+        value="Card"
+      />
+      <div class="topfieldwrapper">
+        <div class="multifieldwrapper">
+          <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+            <input
+              id="DLcardNumber"
+              name="DLcardNumber"
+              class="forminput"
+              pattern="[0-9]{13,19}"
+              oninvalid="setCardValidityMessage();"
+              oninput="this.setCustomValidity('');updateCardType();"
+              maxlength="19"
+              required=""
+              style="background: white none repeat scroll 0% 0%"
+            />
+            <label
+              for="DLcardNumber"
+              class="label"
+              data-label="card.number"
+              style="color: rgb(170, 170, 170)"
+              >Card number</label
+            >
+            <span class="cardtypelabel" id="cardtypelabel"></span>
+          </div>
+          <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+            <input
+              id="DLcardName"
+              name="DLcardName"
+              class="forminput"
+              oninvalid="this.setCustomValidity(getLabel('card.name.err'))"
+              oninput="this.setCustomValidity('');"
+              pattern=".*\S.*"
+              required=""
+              style="background: white none repeat scroll 0% 0%"
+            />
+            <label
+              for="DLcardName"
+              class="label"
+              data-label="card.name"
+              style="color: rgb(170, 170, 170)"
+              >Name on card</label
+            >
+          </div>
+        </div>
+        <div class="multifieldwrapper legacyfields" id="legacyfields">
+          <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+            <input
+              id="DLstart"
+              name="DLstart"
+              maxlength="5"
+              pattern="^(0?[1-9]|1[012])\/[1-9][0-9]$"
+              oninvalid="this.setCustomValidity(getLabel('start.date.err'))"
+              oninput="this.setCustomValidity('');formatsd();"
+              placeholder="MM/YY"
+              class="forminput"
+              style="background: white none repeat scroll 0% 0%"
+            />
+            <label
+              for="DLstart"
+              class="label"
+              data-label="start.date"
+              style="color: rgb(170, 170, 170)"
+              >Start date</label
+            >
+          </div>
+          <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+            <input
+              id="DLissueNumber"
+              name="DLissueNumber"
+              maxlength="2"
+              pattern="\d{1,2}"
+              oninvalid="this.setCustomValidity('Please enter your issue number.')"
+              oninput="this.setCustomValidity('');"
+              class="forminput"
+              style="background: white none repeat scroll 0% 0%"
+            />
+            <label
+              for="DLissueNumber"
+              class="label"
+              data-label="issue.num"
+              style="color: rgb(170, 170, 170)"
+              >Issue no.</label
+            >
+          </div>
+        </div>
+        <div class="multifieldwrapper">
+          <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+            
+          <div class="inputcontainer" style="border-color: rgb(177, 177, 177)">
+            <input
+              id="DLcv2"
+              name="DLcv2"
+              pattern="\d{3}"
+              maxlength="3"
+              oninvalid="this.setCustomValidity(getLabel('security.code.err'))"
+              oninput="this.setCustomValidity('');"
+              class="forminput"
+              required=""
+              style="background: white none repeat scroll 0% 0%"
+            />
+            <label
+              for="DLcv2"
+              class="label"
+              data-label="security.code"
+              style="color: rgb(170, 170, 170)"
+              >Security code</label
+            >
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div>
+      <span class="switchlabel ddswitchlabel" style="display: none"
+        ><span data-label="or">or</span>
+        <a class="hrefshowdd" href="javascript:showdd();" style="color: blue"
+          ><span class="paybyuse" data-label="pay.by">pay by</span>
+          <span class="directdebitecheck"
+            ><span data-label="direct.debit">direct debit</span></span
+          ></a
+        ></span
+      >
+      <span class="switchlabel ppswitchlabel" style="display: none"
+        ><span data-label="or">or</span>
+        <a class="hrefshowpp" href="javascript:showpp();" style="color: blue"
+          ><span class="paybyuse" data-label="pay.by">pay by</span>
+          <span data-label="paypal">Paypal</span></a
+        ></span
+      >
+      <span style="display: none" class="switchlabel idealswitchlabel"
+        ><span data-label="or">or</span>
+        <a
+          class="hrefshowideal"
+          href="javascript:showideal();"
+          style="color: blue"
+          ><span class="paybyuse" data-label="pay.by">pay by</span> iDEAL</a
+        ></span
+      >
+    </div>
+  </div>
+
+  <div class="paymentwrapper" id="ppwrapper" style="display: none">
+    <div>
+      <span class="switchlabel cardswitchlabel"
+        ><a
+          class="hrefshowcard"
+          href="javascript:showcard();"
+          style="color: blue"
+          ><span class="paybyuse" data-label="pay.by">pay by</span>
+          <span data-label="card">card</span></a
+        ></span
+      >
+      <span class="switchlabel ddswitchlabel" style="display: none"
+        ><span data-label="or">or</span>
+        <a class="hrefshowdd" href="javascript:showdd();" style="color: blue"
+          ><span class="paybyuse" data-label="pay.by">pay by</span>
+          <span class="directdebitecheck"
+            ><span data-label="direct.debit">direct debit</span></span
+          ></a
+        ></span
+      >
+      <span style="display: none" class="switchlabel idealswitchlabel"
+        ><span data-label="or">or</span>
+        <a
+          class="hrefshowideal"
+          href="javascript:showideal();"
+          style="color: blue"
+          ><span class="paybyuse" data-label="pay.by">pay by</span> iDEAL</a
+        ></span
+      >
+    </div>
+  </div>
+
+  <div class="paymentwrapper" id="idealwrapper" style="display: none">
+    <div>
+      <span class="switchlabel cardswitchlabel"
+        ><span data-label="or">or</span>
+        <a
+          class="hrefshowcard"
+          href="javascript:showcard();"
+          style="color: blue"
+          ><span class="paybyuse" data-label="pay.by">pay by</span>
+          <span data-label="card">card</span></a
+        ></span
+      >
+      <span class="switchlabel ddswitchlabel" style="display: none"
+        ><span data-label="or">or</span>
+        <a class="hrefshowdd" href="javascript:showdd();" style="color: blue"
+          ><span class="paybyuse" data-label="pay.by">pay by</span>
+          <span class="directdebitecheck"
+            ><span data-label="direct.debit">direct debit</span></span
+          ></a
+        ></span
+      >
+      <span class="switchlabel ppswitchlabel" style="display: none"
+        ><span data-label="or">or</span>
+        <a class="hrefshowpp" href="javascript:showpp();" style="color: blue"
+          ><span class="paybyuse" data-label="pay.by">pay by</span>
+          <span data-label="paypal">Paypal</span></a
+        ></span
+      >
+    </div>
+  </div>
+
+  <div class="paymentwrapper" id="idealwrapper"></div>
+  <div id="captchacontainer" class="captchacontainer" style="display: none">
+    <div
+      class="g-recaptcha"
+      data-sitekey="6LcuPBMTAAAAAPfXTc92EDXxIKAR3EzpjRIi4IBo"
+    >
+      <div style="width: 304px; height: 78px">
+        <div>
+          <iframe
+            src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcuPBMTAAAAAPfXTc92EDXxIKAR3EzpjRIi4IBo&amp;co=aHR0cHM6Ly9saXZlLnByb3RlY3RlZHBheW1lbnRzLm5ldDo0NDM.&amp;hl=en&amp;v=rCr6uVkhcBxHr-Uhry4bcSYc&amp;size=normal&amp;cb=bcem6yvgeq10"
+            role="presentation"
+            name="a-pb0hmyg08011"
+            scrolling="no"
+            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+            width="304"
+            height="78"
+            frameborder="0"
+          ></iframe>
+        </div>
+        <textarea
+          id="g-recaptcha-response"
+          name="g-recaptcha-response"
+          class="g-recaptcha-response"
+          style="
+            width: 250px;
+            height: 40px;
+            border: 1px solid rgb(193, 193, 193);
+            margin: 10px 25px;
+            padding: 0px;
+            resize: none;
+            display: none;
+          "
+        ></textarea>
+      </div>
+      <iframe style="display: none"></iframe>
+    </div>
+  </div>
+  <button
+    class="submitbutton"
+    id="submitbutton"
+    type="submit"
+    data-label="setup.direct.debit"
+    style="background-color: rgb(80, 146, 218); color: white"
+  >
+    Pay with card
+  </button>
+  <div
+    id="cancelwrapper"
+    class="cancelbutton cancelwrapper"
+    style="visibility: hidden"
+  >
+    <span class="switchlabel"
+      ><span data-label="or">or</span>
+      <a href="javascript:cancelPayment();" style="color: blue"
+        ><span id="cancellabel" data-label="cancel.payment"
+          >Cancel payment</span
+        ></a
+      ></span
+    >
+  </div>
+</form>
